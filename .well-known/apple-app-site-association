@@ -3,8 +3,8 @@
     "apps": [],
     "details": [
       {
-        "appID": "marcell.Tempus",
-        "paths": [ "/product/*", "/profile/*" ]
+        "appID": "9YG8Q7GPBK.com.marcell.Tempus",
+        "paths": [ "/*" ]
       }
     ]
   }
