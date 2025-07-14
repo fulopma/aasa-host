@@ -4,11 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tempus Weather</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4f8ef7 0%, #b3e0ff 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .weather-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .cloud {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.7;
+            box-shadow: 60px 0px 0px 0px #fff, 120px 10px 0px 0px #fff, 30px 20px 0px 0px #fff;
+            width: 100px;
+            height: 60px;
+            top: 10%;
+            left: 10%;
+            animation: cloud-move 30s linear infinite;
+        }
+        .cloud2 {
+            top: 30%;
+            left: 60%;
+            width: 80px;
+            height: 50px;
+            opacity: 0.5;
+            animation-delay: 10s;
+        }
+        .cloud3 {
+            top: 60%;
+            left: 30%;
+            width: 120px;
+            height: 70px;
+            opacity: 0.4;
+            animation-delay: 20s;
+        }
+        @keyframes cloud-move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(600px); }
+        }
+        .sun {
+            position: absolute;
+            top: 8%;
+            right: 12%;
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle at 30% 30%, #fffbe7 60%, #ffe066 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 60px 20px #ffe06688;
+            z-index: 1;
+            animation: sun-glow 3s ease-in-out infinite alternate;
+        }
+        @keyframes sun-glow {
+            0% { box-shadow: 0 0 60px 20px #ffe06688; }
+            100% { box-shadow: 0 0 90px 40px #ffe066cc; }
+        }
+        main {
+            position: relative;
+            z-index: 2;
+            background: rgba(0,0,0,0.25);
+            border-radius: 24px;
+            padding: 2.5rem 2.5rem 2rem 2.5rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+            text-align: center;
+            max-width: 420px;
+            margin: 2rem auto;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px #0004;
+        }
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #e0f7fa;
+            text-shadow: 0 1px 4px #0003;
+        }
+        a {
+            display: inline-block;
+            margin: 0.5rem 0.5rem 0 0;
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(90deg, #ffb347 0%, #ffcc33 100%);
+            color: #1a237e;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px #0002;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+        a:hover, a:focus {
+            background: linear-gradient(90deg, #ffcc33 0%, #ffb347 100%);
+            color: #0d1333;
+            box-shadow: 0 4px 16px #0003;
+        }
+        @media (max-width: 600px) {
+            main {
+                padding: 1.2rem 0.5rem 1rem 0.5rem;
+                max-width: 98vw;
+            }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
-<h1>This is the webpage.</h1>
-<h2>Click on a link to test deep and universal linking</h2>
-<p><a href="tempusweather://www.tempusweather.com/WeatherDetails?lat=37.76486&long=-122.50841">Deep Link</a></p>
-<p><a href="https://www.tempusweather.com/WeatherDetails?lat=37.76486&long=-122.50841">Universal Link Link</a></p>
+    <div class="weather-bg">
+        <div class="sun"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+    </div>
+    <main>
+        <h1>Tempus Weather</h1>
+        <h2>Explore historical weather for your location</h2>
+        <p><a href="tempusweather://www.tempusweather.com/WeatherDetails?lat=37.76486&long=-122.50841">Open in App (Deep Link)</a></p>
+        <p><a href="https://www.tempusweather.com/WeatherDetails?lat=37.76486&long=-122.50841">Open in Browser (Universal Link)</a></p>
+    </main>
 </body>
 </html>
