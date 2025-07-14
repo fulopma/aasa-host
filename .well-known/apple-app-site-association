@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "marcell.Tempus",
+        "paths": [ "/product/*", "/profile/*" ]
+      }
+    ]
+  }
+}
+
